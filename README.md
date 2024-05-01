@@ -14,9 +14,9 @@ This repository contains code and data used for conducting competitor analysis f
 * region_mapping.json: JSON file containing mapping of regions to stock exchanges.
 
 ## Usage
-Setup Environment: Ensure you have Python installed along with the required dependencies listed in requirements.txt.
-Run inference.ipynb: Open the Jupyter notebook inference.ipynb and execute the cells to conduct inference on private companies, extract features, and find similar companies.
-Review Results: Review the generated README.md file to see the analysis results including similar companies for each private company.
+* Setup Environment: Ensure you have Python installed along with the required dependencies listed in requirements.txt.
+* Run inference.ipynb: Open the Jupyter notebook inference.ipynb and execute the cells to conduct inference on private companies, extract features, and find similar companies.
+* Review Results: Review the generated README.md file to see the analysis results including similar companies for each private company.
 
 ## Contributors
 @Gagandeep Kamra
