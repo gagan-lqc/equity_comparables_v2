@@ -1,7 +1,6 @@
 from sentence_transformers import SentenceTransformer, util
 import pandas as pd
 
-
 def find_similar_companies(df, company_df,region_mapping,
                            vertical_filter,
                            industry_filter,
@@ -31,13 +30,11 @@ def find_similar_companies(df, company_df,region_mapping,
     
     if(industry_filter):
         print(company_df.loc[0, 'Company Industry'])
-        df = df[df['industry']==company_df.loc[0, 'Company Industry']]
+        df = df[df['industry']==company_df.loc[0, 'Company Industry']].reset_index(drop=True)
 
     if(region_filter):
-        region_similarity = region_mapping.get(company_df.loc[0, 'Company Headquarter'], {})
-        df['Region Similarity'] = df['exchange'].map(region_similarity)
-        df['Region Similarity'] = df['Region Similarity'].fillna(0)
-        region_weight = 0.3
+        print(region_mapping[company_df.loc[0, 'Company Headquarter']])
+        df = df[df['exchange_symbol'].isin(region_mapping[company_df.loc[0, 'Company Headquarter']])].reset_index(drop=True)
     
     print(company_df.loc[0, 'Company Headquarter'])
     df['Final Similarity'] = (1-region_weight) * df['Company Similarity'] + region_weight * df['Region Similarity']
@@ -46,6 +43,7 @@ def find_similar_companies(df, company_df,region_mapping,
     competitor_df['Company Name'] = company_df.loc[0, 'Company Name']
     competitor_df['Company Headquarter'] = company_df.loc[0, 'Company Headquarter']
     competitor_df['Company Vertical'] = company_df.loc[0, 'Company Vertical']
+    competitor_df['ticker'] = competitor_df['exchange_symbol'] + ": " + competitor_df['ticker']
     competitor_df = competitor_df[['Company Name', 'Company Headquarter', 'Company Vertical',
                                    'id', 'name', 'ticker', 'exchange', 'hq', 'value_proposition',
                                    'industry', 'vertical', 'target_audience', 'market', 'companytype',
