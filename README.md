@@ -2,6 +2,17 @@
 ## Overview
 This repository contains code and data used for conducting competitor analysis for both public and private companies. The analysis includes scraping company data, extracting features, and finding similar companies based on various criteria such as industry, region, and vertical.
 
+## Requirements
+Python 3.10.12
+Libraries:
+- beautifulsoup4==4.12.3
+- guidance==0.1.13
+- pandas==2.2.2
+- regex==2023.12.25
+- requests==2.31.0
+- sentence-transformers==2.6.1
+- tqdm==4.66.2
+
 ## Files
 * inference.ipynb: Jupyter notebook containing the code for conducting inference on private companies, extracting features, and finding similar companies.
 * processing.py: Python script containing functions for processing URLs and extracting company information.
