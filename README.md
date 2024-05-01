@@ -4,6 +4,7 @@ This repository contains code and data used for conducting competitor analysis f
 
 ## Requirements
 Python 3.10.12
+
 Libraries:
 - beautifulsoup4==4.12.3
 - guidance==0.1.13
